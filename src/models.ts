@@ -1,3 +1,8 @@
+import fs from 'fs';
+import path from 'path';
+
+const jobsFilePath = path.join(__dirname, '..','src', 'data', 'jobs.json');
+
 export interface Job {
     id: number;
     customerName: string;
@@ -7,21 +12,13 @@ export interface Job {
     technician: string;
 }
 
-export let jobs: Job[] = [
-    {
-        id: 1,
-        customerName: "John Doe",
-        jobType: "Plumbing",
-        status: "Scheduled",
-        appointmentDate: "2024-06-15T09:00:00Z",
-        technician: "Jane Smith"
-    },
-    {
-        id: 2,
-        customerName: "Alice Johnson",
-        jobType: "Electrical",
-        status: "Completed",
-        appointmentDate: "2024-05-20T14:00:00Z",
-        technician: "Bob Brown"
-    }
-];
+export const readJobsFromFile = (): Job[] => {
+    const data = fs.readFileSync(jobsFilePath, 'utf-8');
+    return JSON.parse(data);
+};
+
+export const writeJobsToFile = (jobs: Job[]): void => {
+    fs.writeFileSync(jobsFilePath, JSON.stringify(jobs, null, 2));
+};
+
+export let jobs: Job[] = readJobsFromFile();
