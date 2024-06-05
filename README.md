@@ -12,7 +12,7 @@ The Job Management Backend is built with Node.js and Express, using TypeScript f
 
 1. **Clone the repository**:
     ```bash
-    git clone <repository-url>
+    git clone <https://github.com/LAYTHJABBAR/job-management-backend/tree/main>
     cd job-management-backend
     ```
 
