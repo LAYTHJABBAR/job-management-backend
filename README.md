@@ -6,7 +6,7 @@ The Job Management Backend is built with Node.js and Express, using TypeScript f
 
 ## Project Structure
 
-![alt text](image.png)
+![alt text](Project_Structure.png)
 
 ## Setup Instructions
 
